@@ -14,15 +14,23 @@ app.get('/apps', (req, res) => {
             return res
                 .status(400)
                 .send('Sort must be one of rating or app');
-            }
+        }
+    }
+
+    if (genre) {
+        if (!['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card'].includes(genre)) {
+            return res
+                .status(400)
+                .send('Gere must be one of Action, Puzzle, Strategy, Casual, Arcade, or Card');
+        }
     }
 
     let results = playStore
-    // console.log(results, 'results')
         .filter(app =>{
             console.log(app, 'app');
             console.log(app.Genres.toLowerCase());
             console.log(genre.toLowerCase());
+            console.log(app.Genres.toLowerCase().includes(genre.toLowerCase()));
             return app
                 .Genres
                 .toLowerCase()
