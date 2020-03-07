@@ -18,7 +18,7 @@ app.get('/apps', (req, res) => {
     }
 
     let results = playStore
-    console.log(results, 'results')
+    // console.log(results, 'results')
         .filter(app =>{
             console.log(app, 'app');
             console.log(app.Genres.toLowerCase());
