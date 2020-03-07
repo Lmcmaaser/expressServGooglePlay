@@ -6,6 +6,8 @@ app.use(morgan('common'));
 const playStore = require('./playStore.js');
 app.get('/apps', (req, res) => {
     const { sort, genre } = req.query;
+    console.log(req.query, 'query')
+    
     // catches and returns error
     if (sort) {
         if (!['app', 'rating'].includes(sort)) {
@@ -15,12 +17,13 @@ app.get('/apps', (req, res) => {
             }
     }
 
-    let results = genre
+    let results = playStore
+    console.log(results)
         .filter(app =>
             app
                 .Genres
-                .toLowerCaser()
-                .includes(genre.toLowerCaser())
+                .toLowerCase()
+                .includes(genre.toLowerCase())
         )
     res
         .json(results)
