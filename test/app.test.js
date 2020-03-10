@@ -15,11 +15,3 @@ describe('Express Server Google Play App', () => {
             })
     })
 })
-
-/*
-it(`should return 400 if 'app' or 'rating is missing`, () => {
-        +     return supertest(app)
-        +       .get('/sum')
-        +       .query({ b: 4 })
-        +       .expect(400, 'Value for a is needed');
-        +   });*/
