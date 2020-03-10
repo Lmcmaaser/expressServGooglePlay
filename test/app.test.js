@@ -6,7 +6,7 @@ describe('Express Server Google Play App', () => {
     it('should return an array', () => {
         return supertest(app)
             .get('/apps')
-            .query({ key: 'value' })
+            .query({ genre: 'Card' })
             .expect(200) // supertest expect
             .then(res => {
                 expect(res.body).to.be.an('array');
