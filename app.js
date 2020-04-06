@@ -3,11 +3,7 @@ const morgan = require('morgan');
 const app = express();
 
 app.use(morgan('common'));
-
-app.listen(8000, () => {
-    console.log('Server started on PORT 8000');
-});
-
+// http://localhost:8000/books?search=indiana
 const playStore = require('./playStore.js');
 app.get('/apps', (req, res) => {
     const { sort, genre } = req.query;
@@ -44,3 +40,4 @@ app.get('/apps', (req, res) => {
     res
         .json(results)
 });
+module.exports = app;
